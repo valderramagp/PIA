@@ -1,0 +1,50 @@
+﻿@model PIA.Models.Propiedades
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Propiedades</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCreada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaActualizada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaActualizada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TiposInmueble.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TiposInmueble.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ubicaciones.Calle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ubicaciones.Calle)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdPropiedad }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

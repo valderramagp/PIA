@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>PIA | @ViewBag.Title</title>
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.2.0/css/mdb.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.2.0/js/mdb.min.js"></script>
+
+    <link href="~/Content/LayoutHome.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-dark mdb-color darken-3" role="navigation">
+        <div class="container">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item"><a href="" class="nav-link">(998)-179-5337</a></li>
+                <li class="nav-item"><a href="" class="nav-link">info@piabienesraices.com</a></li>
+            </ul>
+        </div>
+    </nav>
+    <nav class="navbar navbar-dark">
+
+    </nav>
+
+    <div class="jumbotron">
+        <div class="container">
+            <h2>Propiedes Inmobiliarias y Administración</h2>
+        </div>
+        <!-- <div class="container">
+            <div class="search">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-3 search-filter">
+                            <h4>UBICACIÓN <span class="glyphicon glyphicon-chevron-down"></span></h4>
+                        </div>
+                        <div class="col-md-3 search-filter">
+                            <h4>OPERACIÓN <span class="glyphicon glyphicon-chevron-down"></span></h4>
+                        </div>
+                        <div class="col-md-3 search-filter">
+                            <h4>INMUEBLE <span class="glyphicon glyphicon-chevron-down"></span></h4>
+                        </div>
+                        <div class="col-md-3 search-button">
+                            <h4>BUSCAR <span class="glyphicon glyphicon-search"></span></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+</body>
+</html>
