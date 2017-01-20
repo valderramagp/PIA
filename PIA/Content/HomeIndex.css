@@ -1,0 +1,74 @@
+﻿.page-head {
+    color: #fff;
+}
+
+.home-section .section-title {
+    font-weight: 300;
+    color: #4b4b4b;
+}
+
+.separator {
+    height: 2px;
+    width: 100%;
+    background: #4b4b4b;
+    position: relative;
+}
+
+.property-list {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.property-th {
+    width: 31%;
+    display: inline-block;
+    margin: 1%;
+}
+
+.property-th > .thumbnail {
+    border-color: transparent;
+    border-radius: 4px;
+}
+
+.property-th > .thumbnail > .caption {
+    border-left: 1px solid #e1e8eb;
+    border-right: 1px solid #e1e8eb;
+    border-bottom: 1px solid #e1e8eb;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.property-th .property-title {
+    font-weight: bold;
+    margin-bottom: 0;
+    max-width: 99%;
+}
+
+.property-th .property-subtitle {
+    color: #555555;
+    margin-left: 2px;
+    max-width: 99%;
+}
+
+.property-th .property-subtitle:before {
+    content: "\e062";
+    padding-right: 2px;
+    font-family: 'Glyphicons Halflings';
+    font-size: 80%;
+}
+
+.property-th .property-titles {
+    float: left;
+    width: 69%;
+}
+
+.property-th .property-price {
+    float: right;
+    text-align: right;
+    width: 30%;
+    color: #09c859;
+}
+
+.property-th .property-price .price {
+    max-width: 99%;
+}

@@ -1,25 +1,47 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Inicio";
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
 
-<div class="container-fluid text-center">
+<link href="~/Content/HomeIndex.css" rel="stylesheet" />
+
+<div class="container-fluid page-head">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>¡Encuentra lo que estás buscando!</h1>
+        </div>
+    </div>
+</div>
+
+
+<div class="container home-section">
     <h3 class="section-title">Propiedades Destacadas</h3>
     <div class="separator"></div>
-    <div id="detail-prop" class="container">
-       
-    </div>
-    <div class="container-fluid" id="list-destacadas">
+    <div class="property-list">
+        @for(int i = 0; i < 3; i++)
+        {
+            <div class="property-th">
+                <div class="thumbnail">
+                    <img src="~/Images/propiedad-thumbnail.jpg" />
+                    <div class="caption clearfix">
+                        <div class="property-titles">
+                            <h5 class="property-title truncate">San Miguel de Allende</h5>
+                            <p class="property-subtitle truncate">Cancún, Quintana Roo</p>
+                        </div>
+                        <div class="property-price">
+                            <h4 class="price truncate">$5K MXN</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
 
     </div>
 </div>
 
-<div class="container-fluid text-center" id="latestProp">
+<div class="container home-section">
     <h3 class="section-title">Agregadas Recientemente</h3>
     <div class="separator"></div>
-    <div class="latestPropContainer">
-        <div class="latestPropList"></div>
-    </div>
 </div>
 
