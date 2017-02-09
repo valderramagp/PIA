@@ -13,5 +13,15 @@ namespace PIA.Controllers
         {
             return View();
         }
+
+        public ActionResult Propiedades()
+        {
+            return View();
+        }
+
+        public ActionResult Detalle(int id = 0)
+        {
+            return View();
+        }
     }
 }

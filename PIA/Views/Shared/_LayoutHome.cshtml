@@ -12,8 +12,11 @@
     <title>PIA | @ViewBag.Title</title>
 
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/Utils.css" rel="stylesheet"/>
     <link href="~/Content/LayoutHome.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <script src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
@@ -36,17 +39,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="" class="navbar-brand">
+                <a href="/Home/Index" class="navbar-brand">
                     <img src="~/Images/logo-letter.png" alt="Alternate Text" />
                 </a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="">Inicio</a>
+                        <a href="/Home/Index">Inicio</a>
                     </li>
                     <li>
-                        <a href="">Propiedades</a>
+                        <a href="/Home/Propiedades">Propiedades</a>
                     </li>
                     <li>
                         <a href="">Acerca De</a>
@@ -59,5 +62,13 @@
     <div class="" id="RenderBody">
         @RenderBody()
     </div>
+    <script>
+        $(document).ready(function () {
+            $(".property-th").on("click", function () {
+                let $idProp = $(this).data("idPropiedad");
+                window.location.href = "/Home/Detalle/" + $idProp;
+            })
+        });
+    </script>
 </body>
 </html>

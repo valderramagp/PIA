@@ -5,12 +5,11 @@
 }
 
 <link href="~/Content/HomeIndex.css" rel="stylesheet" />
+<link href="~/Content/Propiedades.css" rel="stylesheet" />
 
 <div class="container-fluid page-head">
-    <div class="jumbotron">
-        <div class="container">
-            <h1>¡Encuentra lo que estás buscando!</h1>
-        </div>
+    <div class="title container">
+        <h1>¡Encuentra lo que estás buscando!</h1>
     </div>
 </div>
 
@@ -19,24 +18,33 @@
     <h3 class="section-title">Propiedades Destacadas</h3>
     <div class="separator"></div>
     <div class="property-list">
-        @for(int i = 0; i < 3; i++)
+        @for (int i = 0; i < 3; i++)
         {
-            <div class="property-th">
+            <div class="property-th" data-id-prop="1">
                 <div class="thumbnail">
-                    <img src="~/Images/propiedad-thumbnail.jpg" />
-                    <div class="caption clearfix">
-                        <div class="property-titles">
-                            <h5 class="property-title truncate">San Miguel de Allende</h5>
-                            <p class="property-subtitle truncate">Cancún, Quintana Roo</p>
+                    <div class="property-image" style="background-image: url('../../Images/propiedad-thumbnail.jpg')">
+                        <label class="property-op">Venta</label>
+                        <label class="property-type">Casa</label>
+                    </div>
+                    <div class="caption">
+                        <div class="property-details-head clearfix">
+                            <div class="property-titles">
+                                <h5 class="property-title truncate">San Miguel de Allende</h5>
+                                <p class="property-subtitle truncate">Cancún, Quintana Roo</p>
+                            </div>
+                            <div class="property-price">
+                                <h4 class="price truncate">$5K MXN</h4>
+                            </div>
                         </div>
-                        <div class="property-price">
-                            <h4 class="price truncate">$5K MXN</h4>
+                        <div class="propertye-details-extras">
+                            <label class="property-char property-rooms">5</label>
+                            <label class="property-char property-baths">3</label>
+                            <label class="property-char property-cars">2</label>
                         </div>
                     </div>
                 </div>
             </div>
         }
-
     </div>
 </div>
 
@@ -44,4 +52,3 @@
     <h3 class="section-title">Agregadas Recientemente</h3>
     <div class="separator"></div>
 </div>
-

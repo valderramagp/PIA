@@ -101,14 +101,21 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\DetallePropiedad.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\HomeIndex.css" />
     <Content Include="Content\LayoutHome.css" />
+    <Content Include="Content\Propiedades.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Utils.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\AMPI.png" />
-    <Content Include="Images\banner-home.jpg" />
+    <Content Include="Images\banner-1.jpg" />
+    <Content Include="Images\banner-2.jpg" />
+    <Content Include="Images\banner-3.jpg" />
     <Content Include="Images\fondo1.jpg" />
     <Content Include="Images\idea1.jpg" />
     <Content Include="Images\LOGO TRANSPARENT.png" />
@@ -132,6 +139,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -223,6 +235,8 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Propiedades.cshtml" />
+    <Content Include="Views\Home\Detalle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

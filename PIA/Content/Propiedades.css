@@ -1,0 +1,118 @@
+﻿.property-th {
+    display: inline-block;
+    width: 31%;
+    margin: 1%;
+    border: none;
+}
+
+.property-th:hover {
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    cursor:pointer;
+}
+
+.property-th > .thumbnail {
+    padding: 0;
+    margin:0;
+    border-radius: unset;
+}
+
+.property-th > .thumbnail > .property-image {
+    width: 100%;
+    height: 200px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position:center;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+.property-th > .thumbnail > .property-image > .property-op {
+    background: #dd6644;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+}
+
+.property-th > .thumbnail > .property-image > .property-type {
+    background: #dd6644;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+}
+
+.property-th .property-titles {
+    float: left;
+    width: 69%;
+}
+
+.property-th .property-title {
+    font-weight: bold;
+    margin-bottom: 0;
+    max-width: 99%;
+}
+
+.property-th .property-subtitle {
+    color: #555555;
+    margin-left: 2px;
+    max-width: 99%;
+    margin-bottom: 0;
+}
+
+.property-th .property-subtitle:before {
+    content: "\e062";
+    padding-right: 2px;
+    font-family: 'Glyphicons Halflings';
+    font-size: 80%;
+}
+
+.property-th .property-price {
+    float: right;
+    text-align: right;
+    width: 30%;
+    color: #09c859;
+}
+
+
+.property-th .property-price .price {
+    max-width: 99%;
+}
+
+.property-char {
+    font-weight: 100;
+    color: #555555;
+    margin: 1%;
+}
+
+.property-char:before {
+    font:normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    padding-right: 2px;
+}
+
+.property-rooms:before {
+    content:"\f236";
+}
+
+.property-baths:before {
+    content: "\f2cd";
+}
+
+.property-cars:before {
+    content: "\f1b9";
+}
+
+.btn-details {
+    float: right;
+    margin: 1%;
+    color: #dd6644
+}

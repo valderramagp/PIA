@@ -3,3 +3,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.potencia {
+    position: relative;
+    bottom: 1ex; 
+    font-size: 70% !important;
+}

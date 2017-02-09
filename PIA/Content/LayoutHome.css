@@ -1,5 +1,10 @@
-﻿.top-navbar {
-    background-color: #E3E3E3;
+﻿body {
+    background-color: #eaeaea !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+.top-navbar {
+    background: transparent;
     border-radius: unset;
     margin-bottom: 0;
 }
@@ -15,7 +20,7 @@
 }
 
 .bottom-navbar {
-    background-color: #EAEAEA;
+    background-color: transparent;
     border-radius: unset;
     min-height: 100px;
     height: 100px;
@@ -46,19 +51,14 @@
 }
 
 .page-head {
-    margin: 0;
-    padding: 0;
-}
-
-.page-head .jumbotron {
-    background-image: url("../Images/banner-home.jpg");
+    color: #fff;
+    width: 100%;
+    height: 500px;
     background-repeat: no-repeat;
     background-size: 100%;
-    border-radius: unset !important;
-    margin-bottom: 0;
-    padding: 120px 60px;
+    background-position:center;
 }
 
-#RenderBody {
-    background: #fff;
+.page-head > .title {
+    padding: 90px 50px;
 }
