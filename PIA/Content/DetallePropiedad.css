@@ -3,10 +3,16 @@
     text-align: center;
     margin-top: 20px;
 }
+#property {
+    position:relative;
+}
 
 .property-details {
     padding: 0;
     height: auto;
+    width: 70%;
+    display: inline-block;
+    margin-bottom: 10px;
 }
 
 .property-details .property-gallery {
@@ -117,4 +123,34 @@
 
 .property-contact {
     background: #fff;
+    width: 25%;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px 15px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .property-details {
+        width: 100%;
+        display: block;
+        position:relative;
+    }
+
+    .property-contact {
+        width: 100%;
+        display: block;
+        position:relative;
+    }
+}
+
+.contact-title {
+    color: #6c7072;
+    margin-bottom: 0;
+}
+
+.contact-subtitle {
+    color: #c1c1c1;
 }

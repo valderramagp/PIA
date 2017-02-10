@@ -13,8 +13,8 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="property-details col-md-8">
+<div class="container" id="property">
+    <div class="property-details">
         <div class="property-gallery" >
             <div class="property-image" style="background-image: url('../../Images/propiedad-thumbnail.jpg')"></div>
         </div>
@@ -47,8 +47,30 @@
             </div>
         </div>
     </div>
-    <div class="property-contact col-md-3 col-md-offset-1">
-        <h4>Pedir Informes</h4>
-        <p>Llamanos o deja tu informacion</p>
+    <div class="property-contact">
+        <h4 class="contact-title">Pedir Informes</h4>
+        <p class="contact-subtitle">Llámanos o deja tu información</p>
+        <form action="/" method="post">
+            <div class="form-group">
+                <label class="control-label">Nombre</label>
+                <input type="text" class="form-control input-sm" required />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Correo Electrónico</label>
+                <input type="email" name="email" required class="form-control input-sm" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Teléfono</label>
+                <input type="tel" name="tel" class="form-control input-sm" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Mensaje</label>
+                <textarea class="form-control input-sm" rows="2" name="message"></textarea>
+            </div>
+            <div class="help-block">Al hacer clic en Enviar, estás aceptando nuestros Terminos y Condiciones</div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+            </div>
+        </form>
     </div>
 </div>
