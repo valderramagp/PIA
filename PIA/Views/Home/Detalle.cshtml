@@ -45,6 +45,12 @@
                     </div>
                 </div>
             </div>
+            <div class="property-description">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia odio. Nullam eu metus vestibulum, dictum leo quis, porttitor dolor. Duis justo leo, pharetra at commodo in, pulvinar eget tortor. Vestibulum tempus suscipit hendrerit. Donec convallis condimentum magna sed egestas. Aliquam luctus ipsum sed ante suscipit, viverra maximus augue aliquet. Maecenas diam nibh, sodales in augue vel, maximus placerat mi. Nunc maximus lorem sed suscipit lobortis. Proin vitae ultricies ipsum.</p>
+            </div>
+        </div>
+        <div class="property-location">
+            <div id="map"></div>
         </div>
     </div>
     <div class="property-contact">
@@ -74,3 +80,23 @@
         </form>
     </div>
 </div>
+
+<script>
+    function initMap() {
+        var mapElement = document.getElementById("map");
+        var location = { lat: 21.1572753, lng: -86.8465341, };
+        var map = new google.maps.Map(mapElement, {
+            center: location,
+            zoom: 16
+        });
+
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            title: 'Tu casa!'
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbQdGSuyDBFobghsn1rMOl0PuzjJZ7xpU&callback=initMap">
+</script>

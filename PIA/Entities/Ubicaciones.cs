@@ -7,21 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PIA.Models
+namespace PIA.Entities
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Publicaciones
+    public partial class Ubicaciones
     {
-        public int IdPublicacion { get; set; }
+        public int IdUbicacion { get; set; }
         public int IdPropiedad { get; set; }
-        public string Titulo { get; set; }
-        public int IdOperacion { get; set; }
-        public decimal Precio { get; set; }
-        public string Moneda { get; set; }
+        public string Calle { get; set; }
+        public string Colonia { get; set; }
+        public string NumExterior { get; set; }
+        public string NumInterior { get; set; }
+        public int IdMunicipio { get; set; }
+        public string Latitud { get; set; }
+        public string Longitud { get; set; }
     
-        public virtual Operaciones Operaciones { get; set; }
+        public virtual Municipios Municipios { get; set; }
         public virtual Propiedades Propiedades { get; set; }
     }
 }

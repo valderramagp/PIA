@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PIA.Models
+namespace PIA.Entities
 {
     using System;
     using System.Collections.Generic;

@@ -7,23 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PIA.Models
+namespace PIA.Entities
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Operaciones
+    public partial class Caracteristicas
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Operaciones()
+        public Caracteristicas()
         {
-            this.Publicaciones = new HashSet<Publicaciones>();
+            this.CaracteristicasPropiedad = new HashSet<CaracteristicasPropiedad>();
         }
     
-        public int IdOperacion { get; set; }
+        public int IdCaracteristica { get; set; }
         public string Descripcion { get; set; }
+        public bool Destacado { get; set; }
+        public string Tipo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Publicaciones> Publicaciones { get; set; }
+        public virtual ICollection<CaracteristicasPropiedad> CaracteristicasPropiedad { get; set; }
     }
 }

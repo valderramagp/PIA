@@ -123,12 +123,12 @@
     <Content Include="Images\logo-letter.png" />
     <Content Include="Images\maxresdefault.jpg" />
     <Content Include="Images\propiedad-thumbnail.jpg" />
-    <Content Include="Models\PIAEntities.Context.tt">
+    <Content Include="Entities\PIAEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PIAEntities.edmx</DependentUpon>
       <LastGenOutput>PIAEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\PIAEntities.tt">
+    <Content Include="Entities\PIAEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PIAEntities.edmx</DependentUpon>
       <LastGenOutput>PIAEntities.cs</LastGenOutput>
@@ -167,49 +167,51 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Caracteristicas.cs">
+    <Compile Include="Business\Admin.cs" />
+    <Compile Include="Entities\Caracteristicas.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CaracteristicasPropiedad.cs">
+    <Compile Include="Entities\CaracteristicasPropiedad.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Estados.cs">
+    <Compile Include="Entities\Estados.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Municipios.cs">
+    <Compile Include="Entities\Municipios.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Operaciones.cs">
+    <Compile Include="Entities\Operaciones.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PIAEntities.Context.cs">
+    <Compile Include="Entities\PIAEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PIAEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PIAEntities.cs">
+    <Compile Include="Entities\PIAEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PIAEntities.Designer.cs">
+    <Compile Include="Entities\PIAEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PIAEntities.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Propiedades.cs">
+    <Compile Include="Entities\Propiedades.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Publicaciones.cs">
+    <Compile Include="Entities\Publicaciones.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
+    <Compile Include="Entities\sysdiagrams.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TiposInmueble.cs">
+    <Compile Include="Business\Catalogos.cs" />
+    <Compile Include="Entities\TiposInmueble.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Ubicaciones.cs">
+    <Compile Include="Entities\Ubicaciones.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -217,11 +219,11 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <EntityDeploy Include="Models\PIAEntities.edmx">
+    <EntityDeploy Include="Entities\PIAEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PIAEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\PIAEntities.edmx.diagram">
+    <Content Include="Entities\PIAEntities.edmx.diagram">
       <DependentUpon>PIAEntities.edmx</DependentUpon>
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
@@ -237,6 +239,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Propiedades.cshtml" />
     <Content Include="Views\Home\Detalle.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\New.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -246,7 +250,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

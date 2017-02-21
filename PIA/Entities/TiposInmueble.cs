@@ -7,30 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PIA.Models
+namespace PIA.Entities
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Propiedades
+    public partial class TiposInmueble
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Propiedades()
+        public TiposInmueble()
         {
-            this.CaracteristicasPropiedad = new HashSet<CaracteristicasPropiedad>();
-            this.Publicaciones = new HashSet<Publicaciones>();
+            this.Propiedades = new HashSet<Propiedades>();
         }
     
-        public int IdPropiedad { get; set; }
         public int IdTipoInmueble { get; set; }
-        public System.DateTime FechaCreada { get; set; }
-        public System.DateTime FechaActualizada { get; set; }
+        public string Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CaracteristicasPropiedad> CaracteristicasPropiedad { get; set; }
-        public virtual TiposInmueble TiposInmueble { get; set; }
-        public virtual Ubicaciones Ubicaciones { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Publicaciones> Publicaciones { get; set; }
+        public virtual ICollection<Propiedades> Propiedades { get; set; }
     }
 }

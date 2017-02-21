@@ -1,0 +1,32 @@
+﻿@using PIA.Entities
+@model List<Publicaciones>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <table class="table table-responsive table-hover table-striped table-condensed">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Propiedad</th>
+                <th>Titulo</th>
+                <th>Operacion</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.IdPublicacion</td>
+                    <td>@item.Propiedades.TiposInmueble.Descripcion</td>
+                    <td>@item.Titulo</td>
+                    <td>@item.Operaciones.Descripcion</td>
+                    <td>@item.Precio.ToString("C2") @item.Moneda</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

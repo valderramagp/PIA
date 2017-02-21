@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="79e4eaca9ec34b0bad6745d5cf31f2df" Name="Diagram1">
+        <EntityTypeShape EntityType="PIAModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PIAModel.Caracteristicas" Width="1.5" PointX="5.625" PointY="8.25" />
+        <EntityTypeShape EntityType="PIAModel.CaracteristicasPropiedad" Width="1.5" PointX="7.875" PointY="5" />
+        <EntityTypeShape EntityType="PIAModel.Estados" Width="1.5" PointX="6.375" PointY="11.375" />
+        <EntityTypeShape EntityType="PIAModel.Municipios" Width="1.5" PointX="8.625" PointY="11.125" />
+        <EntityTypeShape EntityType="PIAModel.Operaciones" Width="1.5" PointX="5.625" PointY="1.375" />
+        <EntityTypeShape EntityType="PIAModel.Propiedades" Width="1.5" PointX="5.625" PointY="4.875" />
+        <EntityTypeShape EntityType="PIAModel.Publicaciones" Width="1.5" PointX="7.875" PointY="0.75" />
+        <EntityTypeShape EntityType="PIAModel.TiposInmueble" Width="1.5" PointX="3.375" PointY="5.375" />
+        <EntityTypeShape EntityType="PIAModel.Ubicaciones" Width="1.5" PointX="10.875" PointY="4.5" />
+        <AssociationConnector Association="PIAModel.FK_CaracteristicasPropiedad_Caracteristicas" />
+        <AssociationConnector Association="PIAModel.FK_CaracteristicasPropiedad_Propiedades" />
+        <AssociationConnector Association="PIAModel.FK_Municipios_Estados" />
+        <AssociationConnector Association="PIAModel.FK_Ubicaciones_Municipios" />
+        <AssociationConnector Association="PIAModel.FK_Publicaciones_Operaciones" />
+        <AssociationConnector Association="PIAModel.FK_Propiedades_TiposInmueble" />
+        <AssociationConnector Association="PIAModel.FK_Publicaciones_Propiedades" />
+        <AssociationConnector Association="PIAModel.FK_Ubicaciones_Propiedades" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
