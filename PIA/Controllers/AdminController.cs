@@ -23,13 +23,36 @@ namespace PIA.Controllers
         }
 
         public ActionResult New()
+        {       
+            return View();
+        }
+
+        public PartialViewResult FormPropiedades()
         {
             var catalogosCtx = new Catalogos();
             ViewBag.TiposInmueble = catalogosCtx.ObtenerTiposInmueble();
-            ViewBag.Operaciones = catalogosCtx.ObtenerOperaciones();
-            ViewBag.Estados = catalogosCtx.ObtenerEstados();
+            return PartialView();
+        }
+
+        public PartialViewResult FormCaracteristicas()
+        {
+            var catalogosCtx = new Catalogos();
             ViewBag.Caracteristicas = catalogosCtx.ObtenerCaracteristicas();
-            return View();
+            return PartialView();
+        }
+
+        public PartialViewResult FormUbicacion()
+        {
+            var catalogosCtx = new Catalogos();
+            ViewBag.Estados = catalogosCtx.ObtenerEstados();
+            return PartialView();
+        }
+
+        public PartialViewResult FormPublicaciones()
+        {
+            var catalogosCtx = new Catalogos();
+            ViewBag.Operaciones = catalogosCtx.ObtenerOperaciones();
+            return PartialView();
         }
     }
 }

@@ -241,6 +241,10 @@
     <Content Include="Views\Home\Detalle.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\New.cshtml" />
+    <Content Include="Views\Admin\FormPropiedades.cshtml" />
+    <Content Include="Views\Admin\FormCaracteristicas.cshtml" />
+    <Content Include="Views\Admin\FormUbicacion.cshtml" />
+    <Content Include="Views\Admin\FormPublicaciones.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

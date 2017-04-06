@@ -1,0 +1,21 @@
+﻿@using PIA.Entities;
+@{ 
+    List<Caracteristicas> caracteristicas = ViewBag.Caracteristicas;
+}
+<div class="container">
+    <div class="col-md-12">
+        <h4>Características</h4>
+        <hr />
+    </div>
+    <div class="col-md-12">
+        @foreach (var destacada in caracteristicas.Where(x => x.Destacado))
+        {
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">@destacada.Descripcion</label>
+                    <input type="@destacada.Tipo" name="@destacada.Descripcion" class="form-control caracteristica" required />
+                </div>
+            </div>
+        }
+    </div>
+</div>
