@@ -75,9 +75,8 @@
 }
 
 .property-th .property-price {
-    float: right;
     text-align: right;
-    width: 30%;
+    width: 100%;
     color: #09c859;
 }
 
@@ -115,4 +114,10 @@
     float: right;
     margin: 1%;
     color: #dd6644
+}
+
+@media (max-width: 768px) {
+    .property-th {
+        width: 100%;
+    }
 }

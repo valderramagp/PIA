@@ -74,37 +74,38 @@
     width: 100%;
     height: auto;
     background: #fff;
-    display: table;
+    display: flex;
+    flex-flow: row wrap;
 }
 
 .property-char-list .property-char-line {
     width : 100%;
     position: relative;
     height: auto;
-    display: table-row;
+    
 }
 
-.property-char-list .property-char-line .property-char {
+.property-char-list .property-char {
     vertical-align: top;
     box-sizing: border-box;
-    display: table-cell;
     border-bottom: 1pt solid #dcdcdc;
+    flex: 50%;
 }
 
-.property-char-list .property-char-line .property-char .property-char-key,
-.property-char-list .property-char-line .property-char .property-char-value {
+.property-char-list .property-char .property-char-key,
+.property-char-list .property-char .property-char-value {
     display: inline-block; 
     font-size: 13px;
     margin: 15px 0;
 }
 
-.property-char-list .property-char-line .property-char .property-char-key {
+.property-char-list .property-char .property-char-key {
     font-weight: 600;
     margin-left: 25px;
     color: #2e353b;
 }
 
-.property-char-list .property-char-line .property-char .property-char-value {
+.property-char-list .property-char .property-char-value {
     margin-left: 25px;
     color: #828282;
 }

@@ -5,25 +5,25 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="79e4eaca9ec34b0bad6745d5cf31f2df" Name="Diagram1">
-        <EntityTypeShape EntityType="PIAModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PIAModel.Caracteristicas" Width="1.5" PointX="5.625" PointY="8.25" />
-        <EntityTypeShape EntityType="PIAModel.CaracteristicasPropiedad" Width="1.5" PointX="7.875" PointY="5" />
-        <EntityTypeShape EntityType="PIAModel.Estados" Width="1.5" PointX="6.375" PointY="11.375" />
-        <EntityTypeShape EntityType="PIAModel.Municipios" Width="1.5" PointX="8.625" PointY="11.125" />
-        <EntityTypeShape EntityType="PIAModel.Operaciones" Width="1.5" PointX="5.625" PointY="1.375" />
-        <EntityTypeShape EntityType="PIAModel.Propiedades" Width="1.5" PointX="5.625" PointY="4.875" />
-        <EntityTypeShape EntityType="PIAModel.Publicaciones" Width="1.5" PointX="7.875" PointY="0.75" />
-        <EntityTypeShape EntityType="PIAModel.TiposInmueble" Width="1.5" PointX="3.375" PointY="5.375" />
-        <EntityTypeShape EntityType="PIAModel.Ubicaciones" Width="1.5" PointX="10.875" PointY="4.5" />
+        <EntityTypeShape EntityType="PIAModel.Caracteristicas" Width="1.5" PointX="7.5" PointY="0.75" />
+        <EntityTypeShape EntityType="PIAModel.CaracteristicasPropiedad" Width="1.5" PointX="9.75" PointY="4.625" />
+        <EntityTypeShape EntityType="PIAModel.Estados" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="PIAModel.Municipios" Width="1.5" PointX="3" PointY="4.75" />
+        <EntityTypeShape EntityType="PIAModel.Operaciones" Width="1.5" PointX="10.5" PointY="2" />
+        <EntityTypeShape EntityType="PIAModel.Propiedades" Width="1.5" PointX="7.5" PointY="4.375" />
+        <EntityTypeShape EntityType="PIAModel.Publicaciones" Width="1.5" PointX="12.75" PointY="4.25" />
+        <EntityTypeShape EntityType="PIAModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.5" />
+        <EntityTypeShape EntityType="PIAModel.TiposInmueble" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="PIAModel.Ubicaciones" Width="1.5" PointX="5.25" PointY="4.25" />
         <AssociationConnector Association="PIAModel.FK_CaracteristicasPropiedad_Caracteristicas" />
         <AssociationConnector Association="PIAModel.FK_CaracteristicasPropiedad_Propiedades" />
         <AssociationConnector Association="PIAModel.FK_Municipios_Estados" />
         <AssociationConnector Association="PIAModel.FK_Ubicaciones_Municipios" />
         <AssociationConnector Association="PIAModel.FK_Publicaciones_Operaciones" />
         <AssociationConnector Association="PIAModel.FK_Propiedades_TiposInmueble" />
+        <AssociationConnector Association="PIAModel.FK_Propiedades_Ubicaciones" />
         <AssociationConnector Association="PIAModel.FK_Publicaciones_Propiedades" />
-        <AssociationConnector Association="PIAModel.FK_Ubicaciones_Propiedades" />
-        </Diagram>
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

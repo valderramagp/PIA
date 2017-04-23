@@ -157,17 +157,15 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\propertyItem.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Business\Home.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PropiedadesController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Business\Admin.cs" />
     <Compile Include="Entities\Caracteristicas.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
@@ -183,6 +181,25 @@
     <Compile Include="Entities\Operaciones.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Propiedades.cs">
+      <DependentUpon>PIAEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Publicaciones.cs">
+      <DependentUpon>PIAEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sysdiagrams.cs">
+      <DependentUpon>PIAEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TiposInmueble.cs">
+      <DependentUpon>PIAEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Ubicaciones.cs">
+      <DependentUpon>PIAEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Business\Admin.cs" />
     <Compile Include="Entities\PIAEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -198,22 +215,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PIAEntities.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Propiedades.cs">
-      <DependentUpon>PIAEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Publicaciones.cs">
-      <DependentUpon>PIAEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\sysdiagrams.cs">
-      <DependentUpon>PIAEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Business\Catalogos.cs" />
-    <Compile Include="Entities\TiposInmueble.cs">
-      <DependentUpon>PIAEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Ubicaciones.cs">
-      <DependentUpon>PIAEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

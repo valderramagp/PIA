@@ -25,7 +25,6 @@ namespace PIA.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Caracteristicas> Caracteristicas { get; set; }
         public virtual DbSet<CaracteristicasPropiedad> CaracteristicasPropiedad { get; set; }
         public virtual DbSet<Estados> Estados { get; set; }
@@ -33,6 +32,7 @@ namespace PIA.Entities
         public virtual DbSet<Operaciones> Operaciones { get; set; }
         public virtual DbSet<Propiedades> Propiedades { get; set; }
         public virtual DbSet<Publicaciones> Publicaciones { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TiposInmueble> TiposInmueble { get; set; }
         public virtual DbSet<Ubicaciones> Ubicaciones { get; set; }
     }

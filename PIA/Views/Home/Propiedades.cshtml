@@ -1,4 +1,6 @@
-﻿@{
+﻿@using PIA.Entities;
+@model List<Publicaciones>
+@{
     ViewBag.Title = "Propiedades";
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
@@ -12,31 +14,34 @@
 </div>
 
 <div class="container">
-    @for (int i = 0; i < 3; i++)
+    @foreach (var item in Model)
     {
-        <div class="property-th">
+        <div class="property-th" data-id-publicacion="@item.IdPublicacion">
             <div class="thumbnail">
                 <div class="property-image" style="background-image: url('../../Images/propiedad-thumbnail.jpg')">
-                    <label class="property-op">Venta</label>
-                    <label class="property-type">Casa</label>
+                    <label class="property-op">@item.Operaciones.Descripcion</label>
+                    <label class="property-type">@item.Propiedades.TiposInmueble.Descripcion</label>
                 </div>
                 <div class="caption">
                     <div class="property-details-head clearfix">
                         <div class="property-titles">
-                            <h5 class="property-title truncate">San Miguel de Allende</h5>
-                            <p class="property-subtitle truncate">Cancún, Quintana Roo</p>
+                            <h5 class="property-title truncate">@item.Titulo</h5>
+                            <p class="property-subtitle truncate">@item.Propiedades.Ubicaciones.Municipios.Nombre, @item.Propiedades.Ubicaciones.Municipios.Estados.Nombre</p>
                         </div>
-                        <div class="property-price">
-                            <h4 class="price truncate">$5K MXN</h4>
-                        </div>
+                        
                     </div>
                     <div class="propertye-details-extras">
-                        <label class="property-char property-rooms">5</label>
-                        <label class="property-char property-baths">3</label>
-                        <label class="property-char property-cars">2</label>
+                        <label class="property-char property-rooms">@item.Propiedades.CaracteristicasPropiedad.FirstOrDefault(x => x.IdCaracteristica == 3).Valor </label>
+                        <label class="property-char property-baths">@item.Propiedades.CaracteristicasPropiedad.FirstOrDefault(x => x.IdCaracteristica == 4).Valor</label>
+                        <label class="property-char property-cars">@item.Propiedades.CaracteristicasPropiedad.FirstOrDefault(x => x.IdCaracteristica == 16).Valor</label>
+                    </div>
+                    <div class="property-price">
+                        <h4 class="price truncate">@item.Precio.ToString("C2") @item.Moneda</h4>
                     </div>
                 </div>
             </div>
         </div>
     }
 </div>
+
+<script src="~/Scripts/propertyItem.js"></script>

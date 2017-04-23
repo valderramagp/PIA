@@ -19,20 +19,19 @@ namespace PIA.Entities
         {
             this.CaracteristicasPropiedad = new HashSet<CaracteristicasPropiedad>();
             this.Publicaciones = new HashSet<Publicaciones>();
-            this.Ubicaciones = new HashSet<Ubicaciones>();
         }
     
         public int IdPropiedad { get; set; }
         public int IdTipoInmueble { get; set; }
+        public int IdUbicacion { get; set; }
         public System.DateTime FechaCreada { get; set; }
         public System.DateTime FechaActualizada { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CaracteristicasPropiedad> CaracteristicasPropiedad { get; set; }
         public virtual TiposInmueble TiposInmueble { get; set; }
+        public virtual Ubicaciones Ubicaciones { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Publicaciones> Publicaciones { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ubicaciones> Ubicaciones { get; set; }
     }
 }

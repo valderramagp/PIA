@@ -1,6 +1,7 @@
-﻿
+﻿@using PIA.Entities
+@model Publicaciones
 @{
-    ViewBag.Title = "Detalle";
+    ViewBag.Title = "Detalle " + Model.Titulo;
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
 
@@ -8,8 +9,8 @@
 
 <div class="page-head" style="height: auto !important; margin-bottom: 30px;">
     <div class="container">
-        <h1>Casa en venta en San Miguel de Allende</h1>
-        <p>Av. Avenue, Residencial Tajamar Cancún, QR</p>
+        <h1>@Model.Titulo</h1>
+        <p>@Model.Propiedades.Ubicaciones.Calle, @Model.Propiedades.Ubicaciones.Colonia @Model.Propiedades.Ubicaciones.Municipios.Nombre, @Model.Propiedades.Ubicaciones.Municipios.Estados.Nombre </p>
     </div>
 </div>
 
@@ -20,33 +21,20 @@
         </div>
         <div class="property-chars">
             <div class="property-header">
-                <h3 class="property-price">$1,165,000.00</h3>
-                <div class="property-op">VENTA</div>
+                <h3 class="property-price">@Model.Precio.ToString("C2") @Model.Moneda</h3>
+                <div class="property-op">@Model.Propiedades.TiposInmueble.Descripcion</div>
             </div>
             <div class="property-char-list">
-                <div class="property-char-line">
+                @foreach (var item in Model.Propiedades.CaracteristicasPropiedad)
+                {
                     <div class="property-char">
-                        <div class="property-char-key">Tipo</div>
-                        <div class="property-char-value">Casa</div>
+                        <div class="property-char-key">@item.Caracteristicas.Descripcion</div>
+                        <div class="property-char-value">@item.Valor</div>
                     </div>
-                    <div class="property-char">
-                        <div class="property-char-key">Estacionamientos</div>
-                        <div class="property-char-value">4</div>
-                    </div>
-                </div>
-                <div class="property-char-line">
-                    <div class="property-char">
-                        <div class="property-char-key">M<span class="potencia">2</span> de Terreno</div>
-                        <div class="property-char-value">150</div>
-                    </div>
-                    <div class="property-char">
-                        <div class="property-char-key">M<span class="potencia">2</span> de Construccion</div>
-                        <div class="property-char-value">153</div>
-                    </div>
-                </div>
+                }
             </div>
             <div class="property-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lacinia odio. Nullam eu metus vestibulum, dictum leo quis, porttitor dolor. Duis justo leo, pharetra at commodo in, pulvinar eget tortor. Vestibulum tempus suscipit hendrerit. Donec convallis condimentum magna sed egestas. Aliquam luctus ipsum sed ante suscipit, viverra maximus augue aliquet. Maecenas diam nibh, sodales in augue vel, maximus placerat mi. Nunc maximus lorem sed suscipit lobortis. Proin vitae ultricies ipsum.</p>
+                <p>@Model.Descripcion</p>
             </div>
         </div>
         <div class="property-location">
@@ -84,7 +72,7 @@
 <script>
     function initMap() {
         var mapElement = document.getElementById("map");
-        var location = { lat: 21.1572753, lng: -86.8465341, };
+        var location = { lat: @Model.Propiedades.Ubicaciones.Latitud, lng: @Model.Propiedades.Ubicaciones.Longitud, };
         var map = new google.maps.Map(mapElement, {
             center: location,
             zoom: 16
@@ -93,7 +81,7 @@
         var marker = new google.maps.Marker({
             position: location,
             map: map,
-            title: 'Tu casa!'
+            title: '@Model.Titulo'
         });
     }
 </script>

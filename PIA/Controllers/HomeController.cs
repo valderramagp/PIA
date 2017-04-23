@@ -1,27 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PIA.Business;
 using System.Web.Mvc;
 
 namespace PIA.Controllers
 {
     public class HomeController : Controller
     {
+        private Home ctx;
+
+        public HomeController()
+        {
+            ctx = new Home();   
+        }
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            var model = ctx.ObtenerPublicacionesRecientes();
+            return View(model);
         }
 
         public ActionResult Propiedades()
         {
-            return View();
+            var list = ctx.ObtenerPublicacionesActivas();
+            return View(list);
         }
 
         public ActionResult Detalle(int id = 0)
         {
-            return View();
+            var model = ctx.ObtenerPublicacionPorId(id);
+            if (model == null)
+                return RedirectToAction("Index");
+            return View(model);
         }
     }
 }

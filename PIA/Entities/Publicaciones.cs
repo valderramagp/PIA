@@ -17,6 +17,7 @@ namespace PIA.Entities
         public int IdPublicacion { get; set; }
         public int IdPropiedad { get; set; }
         public string Titulo { get; set; }
+        public string Descripcion { get; set; }
         public int IdOperacion { get; set; }
         public decimal Precio { get; set; }
         public string Moneda { get; set; }
