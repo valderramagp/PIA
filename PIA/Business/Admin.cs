@@ -18,5 +18,12 @@ namespace PIA.Business
         {
             return ctx.Publicaciones.ToList();
         }
+
+        public int LogIn(Usuarios user)
+        {
+            var userInDb = ctx.Usuarios.FirstOrDefault(x => x.Nombre == user.Nombre && x.Contraseña == user.Contraseña);
+            if (userInDb != null) return userInDb.IdUsuario;
+            else return 0;
+        }
     }
 }

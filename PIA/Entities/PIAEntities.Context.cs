@@ -32,8 +32,9 @@ namespace PIA.Entities
         public virtual DbSet<Operaciones> Operaciones { get; set; }
         public virtual DbSet<Propiedades> Propiedades { get; set; }
         public virtual DbSet<Publicaciones> Publicaciones { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TiposInmueble> TiposInmueble { get; set; }
         public virtual DbSet<Ubicaciones> Ubicaciones { get; set; }
+        public virtual DbSet<ImagenesPropiedad> ImagenesPropiedad { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
     }
 }

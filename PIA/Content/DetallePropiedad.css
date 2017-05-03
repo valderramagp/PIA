@@ -25,16 +25,10 @@
     
 }
 
-.property-details .property-gallery .property-image {
-    width: 100%;
-    height: 400px;
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    text-align: center;
-    background-color: #000;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+@media(min-width: 992px) {
+    .carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+        margin-left: 10%;
+    }
 }
 
 .property-details .property-chars .property-header {

@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Detalle " + Model.Titulo;
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    int counter = 0;
 }
 
 <link rel="stylesheet" href="~/Content/DetallePropiedad.css" />
@@ -17,7 +18,29 @@
 <div class="container" id="property">
     <div class="property-details">
         <div class="property-gallery" >
-            <div class="property-image" style="background-image: url('../../Images/propiedad-thumbnail.jpg')"></div>
+            <div class="carousel slide" id="property-gallery" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    @foreach(var li in Model.Propiedades.ImagenesPropiedad)
+                    {
+                        <li data-target="#property-gallery" data-slide-to="@counter"></li>
+                        counter++;
+                    }
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    @foreach(var image in Model.Propiedades.ImagenesPropiedad)
+                    {
+                        <div class="item">
+                            <img src="@image.Src" alt="" />
+                        </div>
+                    }
+                </div>
+                <a class="left carousel-control" href="#property-gallery" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                </a>
+                <a class="right carousel-control" href="#property-gallery" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                </a>
+            </div>
         </div>
         <div class="property-chars">
             <div class="property-header">
@@ -84,6 +107,10 @@
             title: '@Model.Titulo'
         });
     }
+    $(document).ready(function() {
+        $(".carousel-indicators").children().first().addClass("active");
+        $(".carousel-inner").children().first().addClass("active");
+    });
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbQdGSuyDBFobghsn1rMOl0PuzjJZ7xpU&callback=initMap">

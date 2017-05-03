@@ -19,6 +19,7 @@ namespace PIA.Entities
         {
             this.CaracteristicasPropiedad = new HashSet<CaracteristicasPropiedad>();
             this.Publicaciones = new HashSet<Publicaciones>();
+            this.ImagenesPropiedad = new HashSet<ImagenesPropiedad>();
         }
     
         public int IdPropiedad { get; set; }
@@ -33,5 +34,7 @@ namespace PIA.Entities
         public virtual Ubicaciones Ubicaciones { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Publicaciones> Publicaciones { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ImagenesPropiedad> ImagenesPropiedad { get; set; }
     }
 }

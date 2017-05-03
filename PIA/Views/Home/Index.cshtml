@@ -19,11 +19,12 @@
     <h3 class="section-title">Propiedades Recientes</h3>
     <div class="separator"></div>
     <div class="property-list">
-       @foreach(var item in Model)
+       @foreach (var item in Model)
        {
-            <div class="property-th" data-id-publicacion="@item.IdPublicacion">
-                <div class="thumbnail">
-                    <div class="property-image" style="background-image: url('../../Images/propiedad-thumbnail.jpg')">
+           var image = item.Propiedades.ImagenesPropiedad.FirstOrDefault(x => x.Thumbnail) != null ? item.Propiedades.ImagenesPropiedad.FirstOrDefault(x => x.Thumbnail).Src : "http://res.cloudinary.com/alvapag/image/upload/v1493488178/PIA/propiedad-thumbnail_rlpxtc.jpg";
+           <div class="property-th" data-id-publicacion="@item.IdPublicacion">
+               <div class="thumbnail">
+                    <div class="property-image" style="background-image: url('@image')">
                         <label class="property-op">@item.Operaciones.Descripcion</label>
                         <label class="property-type">@item.Propiedades.TiposInmueble.Descripcion</label>
                     </div>

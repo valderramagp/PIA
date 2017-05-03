@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CloudinaryDotNet, Version=1.0.30.0, Culture=neutral, PublicKeyToken=c8234dc617ae7841, processorArchitecture=MSIL">
+      <HintPath>..\packages\CloudinaryDotNet.1.0.30\lib\net40\CloudinaryDotNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -56,6 +60,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -145,6 +153,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Properties\PublishProfiles\GoDaddy.pubxml" />
+    <None Include="Properties\PublishProfiles\piabienesraices.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -153,6 +162,8 @@
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -164,6 +175,8 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Business\Home.cs" />
+    <Compile Include="Business\SessionHelper.cs" />
+    <Compile Include="Controllers\AccesoController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PropiedadesController.cs" />
@@ -174,6 +187,9 @@
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Estados.cs">
+      <DependentUpon>PIAEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ImagenesPropiedad.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Municipios.cs">
@@ -188,15 +204,16 @@
     <Compile Include="Entities\Publicaciones.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\sysdiagrams.cs">
-      <DependentUpon>PIAEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entities\TiposInmueble.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Ubicaciones.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Usuarios.cs">
+      <DependentUpon>PIAEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Filters\AutenticadoAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -244,10 +261,7 @@
     <Content Include="Views\Home\Detalle.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\New.cshtml" />
-    <Content Include="Views\Admin\FormPropiedades.cshtml" />
-    <Content Include="Views\Admin\FormCaracteristicas.cshtml" />
-    <Content Include="Views\Admin\FormUbicacion.cshtml" />
-    <Content Include="Views\Admin\FormPublicaciones.cshtml" />
+    <Content Include="Views\Acceso\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
