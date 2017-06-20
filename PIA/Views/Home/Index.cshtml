@@ -32,13 +32,13 @@
                         <div class="property-details-head clearfix">
                             <div class="property-titles">
                                 <h5 class="property-title truncate">@item.Titulo</h5>
-                                <p class="property-subtitle truncate">@item.Propiedades.Ubicaciones.Municipios.Nombre, @item.Propiedades.Ubicaciones.Municipios.Estados.Nombre</p>
+                                <p class="property-subtitle truncate">@item.Propiedades.Ubicaciones.FirstOrDefault().Municipios.Nombre, @item.Propiedades.Ubicaciones.FirstOrDefault().Municipios.Estados.Nombre</p>
                             </div>
                         </div>
                         <div class="propertye-details-extras">
-                            <label class="property-char property-rooms">@item.Propiedades.CaracteristicasPropiedad.FirstOrDefault(x => x.IdCaracteristica == 3).Valor </label>
-                            <label class="property-char property-baths">@item.Propiedades.CaracteristicasPropiedad.FirstOrDefault(x => x.IdCaracteristica == 4).Valor</label>
-                            <label class="property-char property-cars">@item.Propiedades.CaracteristicasPropiedad.FirstOrDefault(x => x.IdCaracteristica == 16).Valor</label>
+                            <label class="property-char property-rooms">@item.Propiedades.CaracteristicasPropiedad.FirstOrDefault(x => x.IdCaracteristica == 4).Valor </label>
+                            <label class="property-char property-baths">@item.Propiedades.CaracteristicasPropiedad.FirstOrDefault(x => x.IdCaracteristica == 3).Valor</label>
+                            <label class="property-char property-cars">@item.Propiedades.CaracteristicasPropiedad.FirstOrDefault(x => x.IdCaracteristica == 2).Valor</label>
                         </div>
                         <div class="property-price">
                             <h4 class="price truncate">@item.Precio.ToString("C2") @item.Moneda</h4>
@@ -49,10 +49,5 @@
        }
     </div>
 </div>
-
-@*<div class="container home-section">
-    <h3 class="section-title">Agregadas Recientemente</h3>
-    <div class="separator"></div>
-</div>*@
 
 <script src="~/Scripts/propertyItem.js"></script>

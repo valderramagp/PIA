@@ -28,13 +28,13 @@ namespace PIA.Entities
         public virtual DbSet<Caracteristicas> Caracteristicas { get; set; }
         public virtual DbSet<CaracteristicasPropiedad> CaracteristicasPropiedad { get; set; }
         public virtual DbSet<Estados> Estados { get; set; }
+        public virtual DbSet<ImagenesPropiedad> ImagenesPropiedad { get; set; }
         public virtual DbSet<Municipios> Municipios { get; set; }
         public virtual DbSet<Operaciones> Operaciones { get; set; }
-        public virtual DbSet<Propiedades> Propiedades { get; set; }
         public virtual DbSet<Publicaciones> Publicaciones { get; set; }
         public virtual DbSet<TiposInmueble> TiposInmueble { get; set; }
-        public virtual DbSet<Ubicaciones> Ubicaciones { get; set; }
-        public virtual DbSet<ImagenesPropiedad> ImagenesPropiedad { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<Propiedades> Propiedades { get; set; }
+        public virtual DbSet<Ubicaciones> Ubicaciones { get; set; }
     }
 }

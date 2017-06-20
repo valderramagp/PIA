@@ -1,0 +1,48 @@
+﻿@using PIA.Entities;
+@{ 
+    List<Estados> estados = ViewBag.Estados;
+}
+@using(Ajax.BeginForm("GuardarUbicacion", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "OnSuccessUbicacionFrm" }, new { id = "ubicacionFrm"}))
+{
+    <input type="hidden" id="UbicacionIdPropiedad" name="IdPropiedad" />
+    <input type="hidden" name="Latitud" id="Latitud" />
+    <input type="hidden" name="Longitud" id="Longitud" />
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Calle" class="control-label">Calle</label>
+            <input type="text" name="Calle" id="Calle" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="Colonia" class="control-label">Colonia</label>
+            <input type="text" name="Colonia" id="Colonia" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="NumExterior" class="control-label">Número Exterior</label>
+            <input type="text" name="NumExterior" id="NumExterior" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="NumInterior" class="control-label">Número Interior</label>
+            <input type="text" name="NumInterior" id="NumInterior" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="IdMunicipio" class="control-label">Municipio</label>
+            <select name="IdMunicipio" id="IdMunicipio" class="form-control">
+                @foreach (var estado in estados)
+                {
+                    <optgroup label="@estado.Nombre">
+                        @foreach (var municipio in estado.Municipios)
+                        {
+                            <option value="@municipio.IdMunicipio">@municipio.Nombre</option>
+                        }
+                    </optgroup>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">Ubicación</label>
+            <div id="map" style="width: 100%; height: 300px;"></div>
+        </div>
+    </div>
+}

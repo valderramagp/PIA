@@ -1,0 +1,40 @@
+﻿@using PIA.Entities;
+@{ 
+    List<Operaciones> operaciones = ViewBag.Operaciones;
+}
+
+@using (Ajax.BeginForm("GuardarPublicacion", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "OnSuccessPublicacion" }, new { id = "publicacionFrm" }))
+{
+    <input type="hidden" class="IdPropiedad" name="IdPropiedad" id="PublicacionIdPropiedad" />
+
+    <div class="form-group">
+        <label for="Titulo">Título</label>
+        <input type="text" name="Titulo" id="Titulo" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Descripcion">Descripción</label>
+        <textarea name="Descripcion" id="Descripcion" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="IdOperacion">Operación</label>
+        <select name="IdOperacion" id="IdOperacion" class="form-control">
+            <option value="">Seleccione una opción</option>
+            @foreach (var operacion in operaciones)
+            {
+                <option value="@operacion.IdOperacion">@operacion.Descripcion</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="Precio">Precio</label>
+        <input type="text" name="Precio" id="Precio" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Moneda">Moneda</label>
+        <select name="Moneda" id="Moneda" class="form-control">
+            <option>Seleccione una opción</option>
+            <option>MXN</option>
+            <option>USD</option>
+        </select>
+    </div>
+}

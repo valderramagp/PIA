@@ -25,6 +25,47 @@ namespace PIA.Controllers
         {
             return View();
         }
+
+        public PartialViewResult PropiedadForm()
+        {
+            Catalogos c = new Catalogos();
+            var tiposInmueble = c.ObtenerTiposInmueble();
+            ViewBag.TiposInmueble = tiposInmueble;
+            return PartialView();
+        }
+
+        [HttpPost]
+        public JsonResult GuardarPropiedad(Propiedades propiedad)
+        {
+            propiedad.FechaCreada = DateTime.Now;
+            propiedad.FechaActualizada = DateTime.Now;
+            Admin a = new Admin();
+            var result = a.AgregarPropiedad(propiedad);
+            return Json(propiedad.IdPropiedad);
+        }
+
+        public PartialViewResult PublicacionForm()
+        {
+            Catalogos c = new Catalogos();
+            ViewBag.Operaciones = c.ObtenerOperaciones();
+            return PartialView();
+        }
+
+        [HttpPost]
+        public JsonResult GuardarPublicacion(Publicaciones publicacion)
+        {
+            Admin a = new Admin();
+            var result = a.AgregarPublicacion(publicacion);
+            return Json(publicacion.IdPublicacion);
+        }
+
+        public PartialViewResult UbicacionForm()
+        {
+            Catalogos c = new Catalogos();
+            ViewBag.Estados = c.ObtenerEstados();
+            return PartialView();
+        }
+
         
     }
 }

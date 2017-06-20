@@ -25,12 +25,6 @@
     
 }
 
-@media(min-width: 992px) {
-    .carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
-        margin-left: 10%;
-    }
-}
-
 .property-details .property-chars .property-header {
     position: relative;
     border-bottom: 1px solid #dcdcdc;

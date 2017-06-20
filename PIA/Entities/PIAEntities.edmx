@@ -36,7 +36,7 @@
           </Key>
           <Property Name="IdImagen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdPropiedad" Type="int" Nullable="false" />
-          <Property Name="Src" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Src" Type="text" Nullable="false" />
           <Property Name="Thumbnail" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Municipios">
@@ -60,7 +60,6 @@
           </Key>
           <Property Name="IdPropiedad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdTipoInmueble" Type="int" Nullable="false" />
-          <Property Name="IdUbicacion" Type="int" Nullable="false" />
           <Property Name="FechaCreada" Type="datetime" Nullable="false" />
           <Property Name="FechaActualizada" Type="datetime" Nullable="false" />
         </EntityType>
@@ -96,14 +95,15 @@
           <Property Name="IdMunicipio" Type="int" Nullable="false" />
           <Property Name="Latitud" Type="varchar" MaxLength="50" />
           <Property Name="Longitud" Type="varchar" MaxLength="50" />
+          <Property Name="IdPropiedad" Type="int" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
             <PropertyRef Name="IdUsuario" />
           </Key>
           <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Contraseña" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Contrasenia" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_CaracteristicasPropiedad_Caracteristicas">
           <End Role="Caracteristicas" Type="Self.Caracteristicas" Multiplicity="1" />
@@ -165,18 +165,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Propiedades_Ubicaciones">
-          <End Role="Ubicaciones" Type="Self.Ubicaciones" Multiplicity="1" />
-          <End Role="Propiedades" Type="Self.Propiedades" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ubicaciones">
-              <PropertyRef Name="IdUbicacion" />
-            </Principal>
-            <Dependent Role="Propiedades">
-              <PropertyRef Name="IdUbicacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Publicaciones_Operaciones">
           <End Role="Operaciones" Type="Self.Operaciones" Multiplicity="1" />
           <End Role="Publicaciones" Type="Self.Publicaciones" Multiplicity="*" />
@@ -213,6 +201,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Ubicaciones_Propiedades">
+          <End Role="Propiedades" Type="Self.Propiedades" Multiplicity="0..1" />
+          <End Role="Ubicaciones" Type="Self.Ubicaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propiedades">
+              <PropertyRef Name="IdPropiedad" />
+            </Principal>
+            <Dependent Role="Ubicaciones">
+              <PropertyRef Name="IdPropiedad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="PIAModelStoreContainer">
           <EntitySet Name="Caracteristicas" EntityType="Self.Caracteristicas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CaracteristicasPropiedad" EntityType="Self.CaracteristicasPropiedad" Schema="dbo" store:Type="Tables" />
@@ -245,10 +245,6 @@
             <End Role="TiposInmueble" EntitySet="TiposInmueble" />
             <End Role="Propiedades" EntitySet="Propiedades" />
           </AssociationSet>
-          <AssociationSet Name="FK_Propiedades_Ubicaciones" Association="Self.FK_Propiedades_Ubicaciones">
-            <End Role="Ubicaciones" EntitySet="Ubicaciones" />
-            <End Role="Propiedades" EntitySet="Propiedades" />
-          </AssociationSet>
           <AssociationSet Name="FK_Publicaciones_Operaciones" Association="Self.FK_Publicaciones_Operaciones">
             <End Role="Operaciones" EntitySet="Operaciones" />
             <End Role="Publicaciones" EntitySet="Publicaciones" />
@@ -261,6 +257,10 @@
             <End Role="Municipios" EntitySet="Municipios" />
             <End Role="Ubicaciones" EntitySet="Ubicaciones" />
           </AssociationSet>
+          <AssociationSet Name="FK_Ubicaciones_Propiedades" Association="Self.FK_Ubicaciones_Propiedades">
+            <End Role="Propiedades" EntitySet="Propiedades" />
+            <End Role="Ubicaciones" EntitySet="Ubicaciones" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -270,51 +270,51 @@
           <EntitySet Name="Caracteristicas" EntityType="PIAModel.Caracteristicas" />
           <EntitySet Name="CaracteristicasPropiedad" EntityType="PIAModel.CaracteristicasPropiedad" />
           <EntitySet Name="Estados" EntityType="PIAModel.Estados" />
+          <EntitySet Name="ImagenesPropiedad" EntityType="PIAModel.ImagenesPropiedad" />
           <EntitySet Name="Municipios" EntityType="PIAModel.Municipios" />
           <EntitySet Name="Operaciones" EntityType="PIAModel.Operaciones" />
-          <EntitySet Name="Propiedades" EntityType="PIAModel.Propiedades" />
           <EntitySet Name="Publicaciones" EntityType="PIAModel.Publicaciones" />
           <EntitySet Name="TiposInmueble" EntityType="PIAModel.TiposInmueble" />
-          <EntitySet Name="Ubicaciones" EntityType="PIAModel.Ubicaciones" />
+          <EntitySet Name="Usuarios" EntityType="PIAModel.Usuarios" />
           <AssociationSet Name="FK_CaracteristicasPropiedad_Caracteristicas" Association="PIAModel.FK_CaracteristicasPropiedad_Caracteristicas">
             <End Role="Caracteristicas" EntitySet="Caracteristicas" />
-            <End Role="CaracteristicasPropiedad" EntitySet="CaracteristicasPropiedad" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CaracteristicasPropiedad_Propiedades" Association="PIAModel.FK_CaracteristicasPropiedad_Propiedades">
-            <End Role="Propiedades" EntitySet="Propiedades" />
             <End Role="CaracteristicasPropiedad" EntitySet="CaracteristicasPropiedad" />
           </AssociationSet>
           <AssociationSet Name="FK_Municipios_Estados" Association="PIAModel.FK_Municipios_Estados">
             <End Role="Estados" EntitySet="Estados" />
             <End Role="Municipios" EntitySet="Municipios" />
           </AssociationSet>
-          <AssociationSet Name="FK_Ubicaciones_Municipios" Association="PIAModel.FK_Ubicaciones_Municipios">
-            <End Role="Municipios" EntitySet="Municipios" />
-            <End Role="Ubicaciones" EntitySet="Ubicaciones" />
-          </AssociationSet>
           <AssociationSet Name="FK_Publicaciones_Operaciones" Association="PIAModel.FK_Publicaciones_Operaciones">
             <End Role="Operaciones" EntitySet="Operaciones" />
             <End Role="Publicaciones" EntitySet="Publicaciones" />
           </AssociationSet>
+          <EntitySet Name="Propiedades" EntityType="PIAModel.Propiedades" />
+          <EntitySet Name="Ubicaciones" EntityType="PIAModel.Ubicaciones" />
+          <AssociationSet Name="FK_CaracteristicasPropiedad_Propiedades" Association="PIAModel.FK_CaracteristicasPropiedad_Propiedades">
+            <End Role="Propiedades" EntitySet="Propiedades" />
+            <End Role="CaracteristicasPropiedad" EntitySet="CaracteristicasPropiedad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImagenesPropiedad_Propiedades" Association="PIAModel.FK_ImagenesPropiedad_Propiedades">
+            <End Role="Propiedades" EntitySet="Propiedades" />
+            <End Role="ImagenesPropiedad" EntitySet="ImagenesPropiedad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ubicaciones_Municipios" Association="PIAModel.FK_Ubicaciones_Municipios">
+            <End Role="Municipios" EntitySet="Municipios" />
+            <End Role="Ubicaciones" EntitySet="Ubicaciones" />
+          </AssociationSet>
           <AssociationSet Name="FK_Propiedades_TiposInmueble" Association="PIAModel.FK_Propiedades_TiposInmueble">
             <End Role="TiposInmueble" EntitySet="TiposInmueble" />
-            <End Role="Propiedades" EntitySet="Propiedades" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Propiedades_Ubicaciones" Association="PIAModel.FK_Propiedades_Ubicaciones">
-            <End Role="Ubicaciones" EntitySet="Ubicaciones" />
             <End Role="Propiedades" EntitySet="Propiedades" />
           </AssociationSet>
           <AssociationSet Name="FK_Publicaciones_Propiedades" Association="PIAModel.FK_Publicaciones_Propiedades">
             <End Role="Propiedades" EntitySet="Propiedades" />
             <End Role="Publicaciones" EntitySet="Publicaciones" />
           </AssociationSet>
-          <EntitySet Name="ImagenesPropiedad" EntityType="PIAModel.ImagenesPropiedad" />
-          <AssociationSet Name="FK_ImagenesPropiedad_Propiedades" Association="PIAModel.FK_ImagenesPropiedad_Propiedades">
+          <AssociationSet Name="FK_Ubicaciones_Propiedades" Association="PIAModel.FK_Ubicaciones_Propiedades">
             <End Role="Propiedades" EntitySet="Propiedades" />
-            <End Role="ImagenesPropiedad" EntitySet="ImagenesPropiedad" />
+            <End Role="Ubicaciones" EntitySet="Ubicaciones" />
           </AssociationSet>
-          <EntitySet Name="Usuarios" EntityType="PIAModel.Usuarios" />
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Caracteristicas">
           <Key>
             <PropertyRef Name="IdCaracteristica" />
@@ -344,6 +344,16 @@
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Municipios" Relationship="PIAModel.FK_Municipios_Estados" FromRole="Estados" ToRole="Municipios" />
         </EntityType>
+        <EntityType Name="ImagenesPropiedad">
+          <Key>
+            <PropertyRef Name="IdImagen" />
+          </Key>
+          <Property Name="IdImagen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPropiedad" Type="Int32" Nullable="false" />
+          <Property Name="Src" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Thumbnail" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Propiedades" Relationship="PIAModel.FK_ImagenesPropiedad_Propiedades" FromRole="ImagenesPropiedad" ToRole="Propiedades" />
+        </EntityType>
         <EntityType Name="Municipios">
           <Key>
             <PropertyRef Name="IdMunicipio" />
@@ -361,21 +371,6 @@
           <Property Name="IdOperacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Publicaciones" Relationship="PIAModel.FK_Publicaciones_Operaciones" FromRole="Operaciones" ToRole="Publicaciones" />
-        </EntityType>
-        <EntityType Name="Propiedades">
-          <Key>
-            <PropertyRef Name="IdPropiedad" />
-          </Key>
-          <Property Name="IdPropiedad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdTipoInmueble" Type="Int32" Nullable="false" />
-          <Property Name="IdUbicacion" Type="Int32" Nullable="false" />
-          <Property Name="FechaCreada" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="FechaActualizada" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="CaracteristicasPropiedad" Relationship="PIAModel.FK_CaracteristicasPropiedad_Propiedades" FromRole="Propiedades" ToRole="CaracteristicasPropiedad" />
-          <NavigationProperty Name="TiposInmueble" Relationship="PIAModel.FK_Propiedades_TiposInmueble" FromRole="Propiedades" ToRole="TiposInmueble" />
-          <NavigationProperty Name="Ubicaciones" Relationship="PIAModel.FK_Propiedades_Ubicaciones" FromRole="Propiedades" ToRole="Ubicaciones" />
-          <NavigationProperty Name="Publicaciones" Relationship="PIAModel.FK_Publicaciones_Propiedades" FromRole="Propiedades" ToRole="Publicaciones" />
-          <NavigationProperty Name="ImagenesPropiedad" Relationship="PIAModel.FK_ImagenesPropiedad_Propiedades" FromRole="Propiedades" ToRole="ImagenesPropiedad" />
         </EntityType>
         <EntityType Name="Publicaciones">
           <Key>
@@ -400,20 +395,13 @@
           <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Propiedades" Relationship="PIAModel.FK_Propiedades_TiposInmueble" FromRole="TiposInmueble" ToRole="Propiedades" />
         </EntityType>
-        <EntityType Name="Ubicaciones">
+        <EntityType Name="Usuarios">
           <Key>
-            <PropertyRef Name="IdUbicacion" />
+            <PropertyRef Name="IdUsuario" />
           </Key>
-          <Property Name="IdUbicacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Calle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Colonia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="NumExterior" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="NumInterior" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="IdMunicipio" Type="Int32" Nullable="false" />
-          <Property Name="Latitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Longitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Municipios" Relationship="PIAModel.FK_Ubicaciones_Municipios" FromRole="Ubicaciones" ToRole="Municipios" />
-          <NavigationProperty Name="Propiedades" Relationship="PIAModel.FK_Propiedades_Ubicaciones" FromRole="Ubicaciones" ToRole="Propiedades" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_CaracteristicasPropiedad_Caracteristicas">
           <End Type="PIAModel.Caracteristicas" Role="Caracteristicas" Multiplicity="1" />
@@ -424,18 +412,6 @@
             </Principal>
             <Dependent Role="CaracteristicasPropiedad">
               <PropertyRef Name="IdCaracteristica" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CaracteristicasPropiedad_Propiedades">
-          <End Type="PIAModel.Propiedades" Role="Propiedades" Multiplicity="1" />
-          <End Type="PIAModel.CaracteristicasPropiedad" Role="CaracteristicasPropiedad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Propiedades">
-              <PropertyRef Name="IdPropiedad" />
-            </Principal>
-            <Dependent Role="CaracteristicasPropiedad">
-              <PropertyRef Name="IdPropiedad" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -451,18 +427,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Ubicaciones_Municipios">
-          <End Type="PIAModel.Municipios" Role="Municipios" Multiplicity="1" />
-          <End Type="PIAModel.Ubicaciones" Role="Ubicaciones" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Municipios">
-              <PropertyRef Name="IdMunicipio" />
-            </Principal>
-            <Dependent Role="Ubicaciones">
-              <PropertyRef Name="IdMunicipio" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Publicaciones_Operaciones">
           <End Type="PIAModel.Operaciones" Role="Operaciones" Multiplicity="1" />
           <End Type="PIAModel.Publicaciones" Role="Publicaciones" Multiplicity="*" />
@@ -472,6 +436,72 @@
             </Principal>
             <Dependent Role="Publicaciones">
               <PropertyRef Name="IdOperacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Propiedades">
+          <Key>
+            <PropertyRef Name="IdPropiedad" />
+          </Key>
+          <Property Name="IdPropiedad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTipoInmueble" Type="Int32" Nullable="false" />
+          <Property Name="FechaCreada" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaActualizada" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CaracteristicasPropiedad" Relationship="PIAModel.FK_CaracteristicasPropiedad_Propiedades" FromRole="Propiedades" ToRole="CaracteristicasPropiedad" />
+          <NavigationProperty Name="ImagenesPropiedad" Relationship="PIAModel.FK_ImagenesPropiedad_Propiedades" FromRole="Propiedades" ToRole="ImagenesPropiedad" />
+          <NavigationProperty Name="TiposInmueble" Relationship="PIAModel.FK_Propiedades_TiposInmueble" FromRole="Propiedades" ToRole="TiposInmueble" />
+          <NavigationProperty Name="Publicaciones" Relationship="PIAModel.FK_Publicaciones_Propiedades" FromRole="Propiedades" ToRole="Publicaciones" />
+          <NavigationProperty Name="Ubicaciones" Relationship="PIAModel.FK_Ubicaciones_Propiedades" FromRole="Propiedades" ToRole="Ubicaciones" />
+        </EntityType>
+        <EntityType Name="Ubicaciones">
+          <Key>
+            <PropertyRef Name="IdUbicacion" />
+          </Key>
+          <Property Name="IdUbicacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Calle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Colonia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumExterior" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NumInterior" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IdMunicipio" Type="Int32" Nullable="false" />
+          <Property Name="Latitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdPropiedad" Type="Int32" />
+          <NavigationProperty Name="Municipios" Relationship="PIAModel.FK_Ubicaciones_Municipios" FromRole="Ubicaciones" ToRole="Municipios" />
+          <NavigationProperty Name="Propiedades" Relationship="PIAModel.FK_Ubicaciones_Propiedades" FromRole="Ubicaciones" ToRole="Propiedades" />
+        </EntityType>
+        <Association Name="FK_CaracteristicasPropiedad_Propiedades">
+          <End Type="PIAModel.Propiedades" Role="Propiedades" Multiplicity="1" />
+          <End Type="PIAModel.CaracteristicasPropiedad" Role="CaracteristicasPropiedad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propiedades">
+              <PropertyRef Name="IdPropiedad" />
+            </Principal>
+            <Dependent Role="CaracteristicasPropiedad">
+              <PropertyRef Name="IdPropiedad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImagenesPropiedad_Propiedades">
+          <End Type="PIAModel.Propiedades" Role="Propiedades" Multiplicity="1" />
+          <End Type="PIAModel.ImagenesPropiedad" Role="ImagenesPropiedad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propiedades">
+              <PropertyRef Name="IdPropiedad" />
+            </Principal>
+            <Dependent Role="ImagenesPropiedad">
+              <PropertyRef Name="IdPropiedad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ubicaciones_Municipios">
+          <End Type="PIAModel.Municipios" Role="Municipios" Multiplicity="1" />
+          <End Type="PIAModel.Ubicaciones" Role="Ubicaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipios">
+              <PropertyRef Name="IdMunicipio" />
+            </Principal>
+            <Dependent Role="Ubicaciones">
+              <PropertyRef Name="IdMunicipio" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -487,18 +517,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Propiedades_Ubicaciones">
-          <End Type="PIAModel.Ubicaciones" Role="Ubicaciones" Multiplicity="1" />
-          <End Type="PIAModel.Propiedades" Role="Propiedades" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ubicaciones">
-              <PropertyRef Name="IdUbicacion" />
-            </Principal>
-            <Dependent Role="Propiedades">
-              <PropertyRef Name="IdUbicacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Publicaciones_Propiedades">
           <End Type="PIAModel.Propiedades" Role="Propiedades" Multiplicity="1" />
           <End Type="PIAModel.Publicaciones" Role="Publicaciones" Multiplicity="*" />
@@ -511,36 +529,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="ImagenesPropiedad">
-          <Key>
-            <PropertyRef Name="IdImagen" />
-          </Key>
-          <Property Name="IdImagen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdPropiedad" Type="Int32" Nullable="false" />
-          <Property Name="Src" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Thumbnail" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Propiedades" Relationship="PIAModel.FK_ImagenesPropiedad_Propiedades" FromRole="ImagenesPropiedad" ToRole="Propiedades" />
-        </EntityType>
-        <Association Name="FK_ImagenesPropiedad_Propiedades">
-          <End Type="PIAModel.Propiedades" Role="Propiedades" Multiplicity="1" />
-          <End Type="PIAModel.ImagenesPropiedad" Role="ImagenesPropiedad" Multiplicity="*" />
+        <Association Name="FK_Ubicaciones_Propiedades">
+          <End Type="PIAModel.Propiedades" Role="Propiedades" Multiplicity="0..1" />
+          <End Type="PIAModel.Ubicaciones" Role="Ubicaciones" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Propiedades">
               <PropertyRef Name="IdPropiedad" />
             </Principal>
-            <Dependent Role="ImagenesPropiedad">
+            <Dependent Role="Ubicaciones">
               <PropertyRef Name="IdPropiedad" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Usuarios">
-          <Key>
-            <PropertyRef Name="IdUsuario" />
-          </Key>
-          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Contraseña" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -575,6 +575,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesPropiedad">
+            <EntityTypeMapping TypeName="PIAModel.ImagenesPropiedad">
+              <MappingFragment StoreEntitySet="ImagenesPropiedad">
+                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+                <ScalarProperty Name="Src" ColumnName="Src" />
+                <ScalarProperty Name="IdPropiedad" ColumnName="IdPropiedad" />
+                <ScalarProperty Name="IdImagen" ColumnName="IdImagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Municipios">
             <EntityTypeMapping TypeName="PIAModel.Municipios">
               <MappingFragment StoreEntitySet="Municipios">
@@ -589,17 +599,6 @@
               <MappingFragment StoreEntitySet="Operaciones">
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="IdOperacion" ColumnName="IdOperacion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Propiedades">
-            <EntityTypeMapping TypeName="PIAModel.Propiedades">
-              <MappingFragment StoreEntitySet="Propiedades">
-                <ScalarProperty Name="FechaActualizada" ColumnName="FechaActualizada" />
-                <ScalarProperty Name="FechaCreada" ColumnName="FechaCreada" />
-                <ScalarProperty Name="IdUbicacion" ColumnName="IdUbicacion" />
-                <ScalarProperty Name="IdTipoInmueble" ColumnName="IdTipoInmueble" />
-                <ScalarProperty Name="IdPropiedad" ColumnName="IdPropiedad" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -625,9 +624,29 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="PIAModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Propiedades">
+            <EntityTypeMapping TypeName="PIAModel.Propiedades">
+              <MappingFragment StoreEntitySet="Propiedades">
+                <ScalarProperty Name="FechaActualizada" ColumnName="FechaActualizada" />
+                <ScalarProperty Name="FechaCreada" ColumnName="FechaCreada" />
+                <ScalarProperty Name="IdTipoInmueble" ColumnName="IdTipoInmueble" />
+                <ScalarProperty Name="IdPropiedad" ColumnName="IdPropiedad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Ubicaciones">
             <EntityTypeMapping TypeName="PIAModel.Ubicaciones">
               <MappingFragment StoreEntitySet="Ubicaciones">
+                <ScalarProperty Name="IdPropiedad" ColumnName="IdPropiedad" />
                 <ScalarProperty Name="Longitud" ColumnName="Longitud" />
                 <ScalarProperty Name="Latitud" ColumnName="Latitud" />
                 <ScalarProperty Name="IdMunicipio" ColumnName="IdMunicipio" />
@@ -636,25 +655,6 @@
                 <ScalarProperty Name="Colonia" ColumnName="Colonia" />
                 <ScalarProperty Name="Calle" ColumnName="Calle" />
                 <ScalarProperty Name="IdUbicacion" ColumnName="IdUbicacion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ImagenesPropiedad">
-            <EntityTypeMapping TypeName="PIAModel.ImagenesPropiedad">
-              <MappingFragment StoreEntitySet="ImagenesPropiedad">
-                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
-                <ScalarProperty Name="Src" ColumnName="Src" />
-                <ScalarProperty Name="IdPropiedad" ColumnName="IdPropiedad" />
-                <ScalarProperty Name="IdImagen" ColumnName="IdImagen" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Usuarios">
-            <EntityTypeMapping TypeName="PIAModel.Usuarios">
-              <MappingFragment StoreEntitySet="Usuarios">
-                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -672,7 +672,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />

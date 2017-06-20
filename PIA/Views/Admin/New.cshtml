@@ -7,8 +7,30 @@
 
 <h2>Nueva Publicación</h2>
 <a href="/Admin" class="btn btn-danger pull-right">Regresar</a>
+<div class="clearfix"></div>
 
-@using (Html.BeginForm())
-{
+<div class="form-section">
+    <h4>Información de la Propiedad</h4>
+    @{
+        Html.RenderAction("PropiedadForm");
+    }
+</div>
+<div class="form-section">
+    <hr />
+    <h4>Datos de la Publicación</h4>
+    @{
+        Html.RenderAction("PublicacionForm");
+    }
+</div>
+<div class="form-section">
+    <hr />
+    <h4>Ubicación</h4>
+    @{
+        Html.RenderAction("UbicacionForm");
+    }
+</div>
+<button type="button" id="submitFormBtn" class="btn btn-primary">Guardar</button>
 
-}
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbQdGSuyDBFobghsn1rMOl0PuzjJZ7xpU&callback=initMap"></script>
+<script src="~/Scripts/location.maps.js"></script>
+<script src="~/Scripts/new-property.form.js"></script>

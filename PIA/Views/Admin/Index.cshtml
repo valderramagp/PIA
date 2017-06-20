@@ -7,7 +7,7 @@
 
 <div class="container">
     <h3 class="title">Propiedades</h3>
-    <a href="Admin/New" class="btn btn-primary pull-right">Nueva</a>
+    @(Html.ActionLink("Nueva Publicación", "New", null, new { @class= "btn btn-primary pull-right" }))
     <table class="table table-responsive table-hover table-striped table-condensed">
         <thead>
             <tr>

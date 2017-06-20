@@ -14,12 +14,6 @@ namespace PIA.Entities
     
     public partial class Ubicaciones
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Ubicaciones()
-        {
-            this.Propiedades = new HashSet<Propiedades>();
-        }
-    
         public int IdUbicacion { get; set; }
         public string Calle { get; set; }
         public string Colonia { get; set; }
@@ -28,9 +22,9 @@ namespace PIA.Entities
         public int IdMunicipio { get; set; }
         public string Latitud { get; set; }
         public string Longitud { get; set; }
+        public Nullable<int> IdPropiedad { get; set; }
     
         public virtual Municipios Municipios { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Propiedades> Propiedades { get; set; }
+        public virtual Propiedades Propiedades { get; set; }
     }
 }

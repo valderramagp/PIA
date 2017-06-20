@@ -1,0 +1,18 @@
+﻿@using PIA.Entities;
+@{
+    List<TiposInmueble> tipos = ViewBag.TiposInmueble;
+}
+
+@using(Ajax.BeginForm("GuardarPropiedad", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "OnSuccessPropiedadFrm" }, new { id = "propiedadFrm" }))
+{
+    <div class="form-group">
+        <label for="TiposInmueble">Tipo de Inmueble</label>
+        <select name="IdTipoInmueble" id="IdTipoInmueble" class="form-control">
+            <option disabled selected>Seleccione una opción</option>
+            @foreach (var item in tipos)
+            {
+                <option value="@item.IdTipoInmueble">@item.Descripcion</option>
+            }
+        </select>
+    </div>
+}

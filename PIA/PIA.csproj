@@ -168,9 +168,13 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\location.maps.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\new-property.form.js" />
     <Content Include="Scripts\propertyItem.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -179,7 +183,6 @@
     <Compile Include="Controllers\AccesoController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PropiedadesController.cs" />
     <Compile Include="Entities\Caracteristicas.cs">
       <DependentUpon>PIAEntities.tt</DependentUpon>
     </Compile>
@@ -248,11 +251,6 @@
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Propiedades\Create.cshtml" />
-    <Content Include="Views\Propiedades\Delete.cshtml" />
-    <Content Include="Views\Propiedades\Details.cshtml" />
-    <Content Include="Views\Propiedades\Edit.cshtml" />
-    <Content Include="Views\Propiedades\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutHome.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
@@ -262,6 +260,9 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\New.cshtml" />
     <Content Include="Views\Acceso\Index.cshtml" />
+    <Content Include="Views\Admin\PropiedadForm.cshtml" />
+    <Content Include="Views\Admin\PublicacionForm.cshtml" />
+    <Content Include="Views\Admin\UbicacionForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
